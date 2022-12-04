@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
         val first = line.substring(0, line.length / 2)
         val second = line.substring(line.length / 2)
 
-        score += first.toSet().intersect(second.toSet()).sumOf { score(it) }
+        score += first.toCharSet().intersect(second.toCharSet()).sumOf { score(it) }
 
     }
     println(score)
@@ -22,7 +22,7 @@ fun score(c: Char): Int {
     } else 0
 }
 
-fun String.toSet(): Set<Char> {
+fun String.toCharSet(): Set<Char> {
     val unique = mutableSetOf<Char>()
     for (i in 0 until length) {
         unique.add(get(i))
