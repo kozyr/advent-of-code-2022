@@ -8,7 +8,6 @@ fun main(args: Array<String>) {
         val first = line.substring(0, line.length / 2)
         val second = line.substring(line.length / 2)
 
-        first.toSet()
         score += first.toSet().intersect(second.toSet()).sumOf { day3Score(it) }
 
     }
