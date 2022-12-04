@@ -17,7 +17,9 @@ fun main(args: Array<String>) {
 }
 
 fun scoreGroup(group: List<String>): Int {
-    return score(group.map(String::toCharSet).reduce {
+    return score(
+        group.map(String::toCharSet).reduce {
             acc, set -> acc.intersect(set)
-    }.first())
+        }.first()
+    )
 }
