@@ -8,13 +8,14 @@ fun main(args: Array<String>) {
         val first = line.substring(0, line.length / 2)
         val second = line.substring(line.length / 2)
 
-        score += first.toCharSet().intersect(second.toCharSet()).sumOf { score(it) }
+        first.toSet()
+        score += first.toSet().intersect(second.toSet()).sumOf { day3Score(it) }
 
     }
     println(score)
 }
 
-fun score(c: Char): Int {
+fun day3Score(c: Char): Int {
     return if (c.isLowerCase()) {
         c - 'a' + 1
     } else if (c.isUpperCase()) {
@@ -22,10 +23,3 @@ fun score(c: Char): Int {
     } else 0
 }
 
-fun String.toCharSet(): Set<Char> {
-    val unique = mutableSetOf<Char>()
-    for (i in 0 until length) {
-        unique.add(get(i))
-    }
-    return unique
-}

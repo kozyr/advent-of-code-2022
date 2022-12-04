@@ -8,18 +8,14 @@ fun main(args: Array<String>) {
     File("input/day3.txt").forEachLine { line ->
         group.add(line)
         if (group.size % 3 == 0) {
-            score += scoreGroup(group)
+            score += day3Score(
+                group.map(String::toSet).reduce {
+                        acc, set -> acc.intersect(set)
+                }.first()
+            )
             group.clear()
         }
     }
 
     println(score)
-}
-
-fun scoreGroup(group: List<String>): Int {
-    return score(
-        group.map(String::toCharSet).reduce {
-            acc, set -> acc.intersect(set)
-        }.first()
-    )
 }
